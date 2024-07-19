@@ -1,0 +1,30 @@
+﻿@model IEnumerable<RingoMediaTask.Models.Department>
+
+<h1><img src="@ViewBag.DepartmentLogo"/> @ViewBag.DepartmentName </h1>
+
+<h2>Departments</h2>
+<ul>
+    @foreach (var dept in Model)
+    {
+        <li>
+            <a>
+                <img src=" @dept.Logo" />
+            </a>
+            <a href="@Url.Action("Index", new { departmentId = dept.Id })">
+                @dept.Name                
+            </a>           
+        </li>
+    }
+</ul>
+
+<h3>Parent Departments</h3>
+<ul>
+    @foreach (var parent in ViewBag.ParentDepartments)
+    {
+        <li>
+            <a href="@Url.Action("Index", new { departmentId = parent.Id })">
+                @parent.Name
+            </a>
+        </li>
+    }
+</ul>

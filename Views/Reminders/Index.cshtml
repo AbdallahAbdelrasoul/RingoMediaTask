@@ -1,0 +1,46 @@
+﻿@model RingoMediaTask.ViewModels.ReminderViewModel
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label asp-for="NewReminder.Title" class="control-label"></label>
+        <input asp-for="NewReminder.Title" class="form-control" />
+        <span asp-validation-for="NewReminder.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewReminder.DateTime" class="control-label"></label>
+        <input asp-for="NewReminder.DateTime" class="form-control" type="datetime-local" />
+        <span asp-validation-for="NewReminder.DateTime" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+    <br />
+</form>
+
+
+<h2>Reminders</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reminder in Model.Reminders)
+    {
+        <tr>
+            <td>
+                @reminder.Title
+            </td>
+
+            <td>
+                @reminder.DateTime
+            </td>            
+        </tr>   
+    }
+    </tbody>
+
+</table>
