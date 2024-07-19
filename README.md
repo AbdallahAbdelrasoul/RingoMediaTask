@@ -42,8 +42,13 @@ This project is an ASP.NET Core MVC application that includes two main modules:
     - Update the connection string in `appsettings.json` with your SQL Server instance:
     ```json
     "ConnectionStrings": {
-      "DefaultConnection": "Server=your_server;Database=your_database;User Id=your_username;Password=your_password;"
+         "DefaultConnection": "Data Source=your_server;Initial Catalog=your_database;Integrated Security=True;TrustServerCertificate=True;"
+
     }
+    or 
+   "ConnectionStrings": {
+         "DefaultConnection": "Data Source=your_server;Initial Catalog=your_database;User Id=your_username;Password=your_password;;TrustServerCertificate=True;"
+    
     ```
 
 3. **Run Migrations**:
